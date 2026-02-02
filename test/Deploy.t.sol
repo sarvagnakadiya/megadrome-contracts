@@ -24,13 +24,13 @@ contract TestDeploy is BaseTest {
     address public emergencyCouncil;
     address public constant testDeployer = address(1);
 
-    struct PoolNonAero {
+    struct PoolNonMega {
         bool stable;
         address tokenA;
         address tokenB;
     }
 
-    struct PoolAero {
+    struct PoolMega {
         bool stable;
         address token;
     }
@@ -152,7 +152,7 @@ contract TestDeploy is BaseTest {
         assertEq(deployCore.MEGA().minter(), address(deployCore.minter()));
 
         assertEq(deployCore.voter().minter(), address(deployCore.minter()));
-        assertEq(address(deployCore.minter().aero()), address(deployCore.MEGA()));
+        assertEq(address(deployCore.minter().mega()), address(deployCore.MEGA()));
         assertEq(address(deployCore.minter().voter()), address(deployCore.voter()));
         assertEq(address(deployCore.minter().ve()), address(deployCore.escrow()));
         assertEq(address(deployCore.minter().rewardsDistributor()), address(deployCore.distributor()));
@@ -171,9 +171,9 @@ contract TestDeploy is BaseTest {
         // DeployGaugesAndPools checks
 
         // Validate non-MEGA pools and gauges
-        PoolNonAero[] memory pools = abi.decode(jsonConstants.parseRaw(".pools"), (PoolNonAero[]));
+        PoolNonMega[] memory pools = abi.decode(jsonConstants.parseRaw(".pools"), (PoolNonMega[]));
         for (uint256 i = 0; i < pools.length; i++) {
-            PoolNonAero memory p = pools[i];
+            PoolNonMega memory p = pools[i];
             address poolAddr = deployCore.factory().getPool(p.tokenA, p.tokenB, p.stable);
             assertTrue(poolAddr != address(0));
             address gaugeAddr = deployCore.voter().gauges(poolAddr);
@@ -181,9 +181,9 @@ contract TestDeploy is BaseTest {
         }
 
         // validate MEGA pools and gauges
-        PoolAero[] memory poolsAero = abi.decode(jsonConstants.parseRaw(".poolsAero"), (PoolAero[]));
-        for (uint256 i = 0; i < poolsAero.length; i++) {
-            PoolAero memory p = poolsAero[i];
+        PoolMega[] memory poolsMega = abi.decode(jsonConstants.parseRaw(".poolsMega"), (PoolMega[]));
+        for (uint256 i = 0; i < poolsMega.length; i++) {
+            PoolMega memory p = poolsMega[i];
             address poolAddr = deployCore.factory().getPool(address(deployCore.MEGA()), p.token, p.stable);
             assertTrue(poolAddr != address(0));
             address gaugeAddr = deployCore.voter().gauges(poolAddr);

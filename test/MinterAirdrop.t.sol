@@ -27,7 +27,7 @@ contract MinterAirdrop is BaseTest {
             WALLET_NUMBER,
             TOKEN_100K
         );
-        uint256 preAeroBal = MEGA.balanceOf(address(this));
+        uint256 preMegaBal = MEGA.balanceOf(address(this));
 
         // Expects all events from the airdrop
         uint256 liquidLen = liquidWallets.length;
@@ -66,13 +66,13 @@ contract MinterAirdrop is BaseTest {
             assertEq(locked.end, 0);
         }
         // Minter balance remains unchanged
-        assertEq(MEGA.balanceOf(address(this)), preAeroBal);
+        assertEq(MEGA.balanceOf(address(this)), preMegaBal);
         assertEq(escrow.balanceOf(address(this)), 0);
     }
 
-    function testInitializeAeroAirdrop() public {
+    function testInitializeMegaAirdrop() public {
         (address[] memory wallets, uint256[] memory amounts) = _getWalletsAmounts(WALLET_NUMBER, TOKEN_1M);
-        uint256 preAeroBal = MEGA.balanceOf(address(this));
+        uint256 preMegaBal = MEGA.balanceOf(address(this));
 
         uint256 len = wallets.length;
         // Expects all events to be emitted
@@ -97,13 +97,13 @@ contract MinterAirdrop is BaseTest {
             assertEq(MEGA.balanceOf(wallets[i]), amounts[i]);
         }
         // Minter balance remains unchanged
-        assertEq(MEGA.balanceOf(address(this)), preAeroBal);
+        assertEq(MEGA.balanceOf(address(this)), preMegaBal);
         assertEq(escrow.balanceOf(address(this)), 0);
     }
 
     function testInitializeVeAirdrop() public {
         (address[] memory wallets, uint256[] memory amounts) = _getWalletsAmounts(WALLET_NUMBER, TOKEN_100K);
-        uint256 preAeroBal = MEGA.balanceOf(address(this));
+        uint256 preMegaBal = MEGA.balanceOf(address(this));
 
         uint256 len = wallets.length;
         // Expects all events to be emitted
@@ -134,7 +134,7 @@ contract MinterAirdrop is BaseTest {
             assertEq(locked.end, 0);
         }
         // Minter balance remains unchanged
-        assertEq(MEGA.balanceOf(address(this)), preAeroBal);
+        assertEq(MEGA.balanceOf(address(this)), preMegaBal);
         assertEq(escrow.balanceOf(address(this)), 0);
     }
 

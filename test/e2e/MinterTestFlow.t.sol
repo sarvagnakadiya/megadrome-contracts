@@ -107,7 +107,7 @@ contract MinterTestFlow is ExtendedBaseTest {
         skipToNextEpoch(1);
 
         minter.updatePeriod();
-        /// total aero supply ~1_318_923_747, tail emissions .29% of total supply
+        /// total mega supply ~1_318_923_747, tail emissions .29% of total supply
         /// 1_318_923_747 ~= 50_000_000 initial supply + emissions until now
         assertApproxEqAbs(MEGA.balanceOf(address(voter)), 8_744_211 * TOKEN_1, TOKEN_1);
         voter.distribute(0, voter.length());
@@ -142,7 +142,7 @@ contract MinterTestFlow is ExtendedBaseTest {
         assertEq(minter.tailEmissionRate(), 68);
 
         minter.updatePeriod();
-        /// total aero supply ~1_333_083_660, tail emissions .67% of total supply
+        /// total mega supply ~1_333_083_660, tail emissions .67% of total supply
         assertApproxEqAbs(MEGA.balanceOf(address(voter)), 8_968_681 * TOKEN_1, TOKEN_1);
         voter.distribute(0, voter.length());
 
@@ -165,7 +165,7 @@ contract MinterTestFlow is ExtendedBaseTest {
         assertEq(minter.tailEmissionRate(), 68);
 
         minter.updatePeriod();
-        /// total aero supply ~1_347_869_657, tail emissions .68% of total supply
+        /// total mega supply ~1_347_869_657, tail emissions .68% of total supply
         assertApproxEqAbs(MEGA.balanceOf(address(voter)), 9_064_968 * TOKEN_1, TOKEN_1);
         voter.distribute(0, voter.length());
 
@@ -179,7 +179,7 @@ contract MinterTestFlow is ExtendedBaseTest {
         assertEq(minter.tailEmissionRate(), 67);
 
         minter.updatePeriod();
-        /// total aero supply ~1_361_640_291, tail emissions .67% of total supply
+        /// total mega supply ~1_361_640_291, tail emissions .67% of total supply
         assertApproxEqAbs(MEGA.balanceOf(address(voter)), 9_027_516 * TOKEN_1, TOKEN_1);
         voter.distribute(0, voter.length());
     }

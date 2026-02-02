@@ -87,7 +87,7 @@ contract ManagedNftFlow is ExtendedBaseTest {
         rewards[0] = address(MEGA);
         rewards[1] = address(USDC);
 
-        // create aero bribe for next epoch
+        // create mega bribe for next epoch
         _createBribeWithAmount(bribeVotingReward, address(MEGA), TOKEN_1 * 2);
 
         /// total votes:
@@ -128,7 +128,7 @@ contract ManagedNftFlow is ExtendedBaseTest {
         assertEq(lockedManagedReward.earned(address(MEGA), tokenId2), TOKEN_1 / 2);
 
         // epoch 1:
-        // simulate rebase + non-compounded aero rewards
+        // simulate rebase + non-compounded mega rewards
 
         /// state of gauge votes:
         /// mTokenId contribution ~= 3 / 4
@@ -323,7 +323,7 @@ contract ManagedNftFlow is ExtendedBaseTest {
         // owner votes for pool now
         voter.vote(tokenId, pools, weights);
 
-        // create aero bribe for epoch 4
+        // create mega bribe for epoch 4
         _createBribeWithAmount(bribeVotingReward, address(MEGA), TOKEN_1);
 
         skipToNextEpoch(1);
@@ -397,7 +397,7 @@ contract ManagedNftFlow is ExtendedBaseTest {
         rewards[0] = address(MEGA);
         rewards[1] = address(USDC);
 
-        // create aero bribe for next epoch
+        // create mega bribe for next epoch
         _createBribeWithAmount(bribeVotingReward, address(MEGA), TOKEN_1);
 
         skip(1 hours + 1);
@@ -441,7 +441,7 @@ contract ManagedNftFlow is ExtendedBaseTest {
         assertEq(freeManagedReward.earned(address(MEGA), tokenId), TOKEN_1 / 2);
         assertEq(freeManagedReward.earned(address(MEGA), tokenId2), TOKEN_1 / 2);
 
-        // create aero bribe for next epoch
+        // create mega bribe for next epoch
         _createBribeWithAmount(bribeVotingReward, address(MEGA), TOKEN_1 * 2);
 
         skip(1 hours);

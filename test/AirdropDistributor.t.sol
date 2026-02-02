@@ -67,10 +67,10 @@ contract AirdropDistributorTest is BaseTest {
         // Airdrops tokens
         vm.prank(address(owner));
         airdrop.distributeTokens(_wallets, _amounts);
-        uint256 newAeroBal = MEGA.balanceOf(address(airdrop));
+        uint256 newMegaBal = MEGA.balanceOf(address(airdrop));
 
         // Asserts Distributor's token balances
-        assertEq(preMegaBal - sum, newAeroBal);
+        assertEq(preMegaBal - sum, newMegaBal);
         assertEq(escrow.balanceOf(address(airdrop)), 0);
         // Ensures every token is permanently locked, with the rightful amount and predicted TokenId
         for (uint256 i = 0; i < _len; i++) {

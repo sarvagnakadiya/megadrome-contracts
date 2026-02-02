@@ -14,7 +14,7 @@ import {
   RewardsDistributor,
   AirdropDistributor,
   Router,
-  Aero,
+  Mega,
   Voter,
   VeArtProxy,
   VotingEscrow,
@@ -34,7 +34,7 @@ interface ProtocolOutput {
   Minter: string;
   PoolFactory: string;
   Router: string;
-  AERO: string;
+  MEGA: string;
   Voter: string;
   VotingEscrow: string;
   VotingRewardsFactory: string;
@@ -51,8 +51,8 @@ async function main() {
   const AIRDROPPER_BALANCE = 200_000_000;
   const DECIMAL = BigNumber.from(10).pow(18);
 
-  const AERO = await deploy<Aero>("Aero");
-  jsonConstants.whitelistTokens.push(AERO.address);
+  const MEGA = await deploy<Mega>("Mega");
+  jsonConstants.whitelistTokens.push(MEGA.address);
   // ====== end _deploySetupBefore() ======
 
   // ====== start _coreSetup() ======
@@ -101,7 +101,7 @@ async function main() {
     "VotingEscrow",
     libraries,
     forwarder.address,
-    AERO.address,
+    MEGA.address,
     factoryRegistry.address
   );
 
@@ -153,7 +153,7 @@ async function main() {
     distributor.address
   );
   await distributor.setMinter(minter.address);
-  await AERO.setMinter(minter.address);
+  await MEGA.setMinter(minter.address);
 
   const airdrop = await deploy<AirdropDistributor>(
     "AirdropDistributor",
@@ -228,7 +228,7 @@ async function main() {
     Minter: minter.address,
     PoolFactory: poolFactory.address,
     Router: router.address,
-    AERO: AERO.address,
+    MEGA: MEGA.address,
     Voter: voter.address,
     VotingEscrow: escrow.address,
     VotingRewardsFactory: votingRewardsFactory.address,

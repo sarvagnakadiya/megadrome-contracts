@@ -5,7 +5,7 @@ For details, see
 * contracts/PoolFees.sol
 * contracts/Router.sol
 * contracts/RewardsDistributor.sol
-* contracts/Aero.sol
+* contracts/Mega.sol
 * contracts/ProtocolForwarder.sol
 * LICENSE.GPL3
 

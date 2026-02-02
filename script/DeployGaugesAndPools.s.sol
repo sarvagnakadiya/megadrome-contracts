@@ -19,13 +19,13 @@ contract DeployGaugesAndPools is Script {
     Voter public voter;
     address public MEGA;
 
-    struct PoolNonAero {
+    struct PoolNonMega {
         bool stable;
         address tokenA;
         address tokenB;
     }
 
-    struct PoolAero {
+    struct PoolMega {
         bool stable;
         address token;
     }
@@ -42,8 +42,8 @@ contract DeployGaugesAndPools is Script {
 
         // load in vars
         jsonConstants = vm.readFile(path);
-        PoolNonAero[] memory _pools = abi.decode(jsonConstants.parseRaw(".pools"), (PoolNonAero[]));
-        PoolAero[] memory poolsAero = abi.decode(jsonConstants.parseRaw(".poolsAero"), (PoolAero[]));
+        PoolNonMega[] memory _pools = abi.decode(jsonConstants.parseRaw(".pools"), (PoolNonMega[]));
+        PoolMega[] memory poolsMega = abi.decode(jsonConstants.parseRaw(".poolsMega"), (PoolMega[]));
 
         path = string.concat(basePath, "output/DeployCore-");
         path = string.concat(path, outputFilename);
@@ -64,8 +64,8 @@ contract DeployGaugesAndPools is Script {
         }
 
         // Deploy all MEGA pools & gauges
-        for (uint256 i = 0; i < poolsAero.length; i++) {
-            address newPool = factory.createPool(MEGA, poolsAero[i].token, poolsAero[i].stable);
+        for (uint256 i = 0; i < poolsMega.length; i++) {
+            address newPool = factory.createPool(MEGA, poolsMega[i].token, poolsMega[i].stable);
             address newGauge = voter.createGauge(address(factory), newPool);
 
             pools.push(newPool);

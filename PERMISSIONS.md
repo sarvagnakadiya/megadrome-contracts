@@ -4,21 +4,21 @@
 - Can swap tokens through the Protocol DEX.
 - Can provide liquidity.
 - Can create a Normal veNFT.
-- Can deposit AERO into an existing Normal veNFT.
+- Can deposit MEGA into an existing Normal veNFT.
 - Can poke the balance of an existing veNFT to sync the balance.
 - Can bribe a liquidity pool through its' linked BribeVotingRewards contract.
 - Can skim a stable or volatile liquidity pool to rebalance the reserves.
 - Can sync a liquidity pool to record historical price
-- Can trigger the emission of AERO at the start of an epoch
+- Can trigger the emission of MEGA at the start of an epoch
 - Can create a liquidity pool with two different ERC20 tokens if the pool is not already created
 - Can create a gauge for the liquidity pool if the gauge is not already created and the tokens are whitelisted
 
 ### Liquidity provider (LP)
 - Can deposit their LP token into the Protocol gauge linked to the liquidity pool
-    - Earns AERO emissions
+    - Earns MEGA emissions
 
 ### veNFT Hodler
-- For a detailed breakdown refer to [VOTINGESCROW.md](https://github.com/aerodrome-finance/contracts/blob/main/VOTINGESCROW.md)
+- For a detailed breakdown refer to [VOTINGESCROW.md](https://github.com/megadrome-finance/contracts/blob/main/VOTINGESCROW.md)
 
 #### Normal, Normal Permanent, and Managed veNFT
 - Can approve/revoke an address to modify the veNFT
@@ -26,7 +26,7 @@
 - Can increase amount locked
 - Can vote weekly on pool(s)
     - Earns bribes and trading fees
-    - Earns weekly distribution of AERO rebases
+    - Earns weekly distribution of MEGA rebases
 - Can vote on ProtocolGovernor proposals
 - Can vote on EpochGovernor proposals
 
@@ -59,10 +59,10 @@ Multisig at [0x99249b10593fCa1Ae9DAE6D4819F1A6dae5C013D](https://basescan.org/ad
 Protocol team at deployment of ProtocolGovernor. At a later date, this role will be renounced.
 
 #### ProtocolGovernor (aka. Governor)
-At first deployment, team. At a later date, this will be set to a lightly modified [Governor](https://docs.openzeppelin.com/contracts/4.x/api/governance#governor) contract from OpenZeppelin, [ProtocolGovernor](https://github.com/aerodrome-finance/contracts/blob/main/contracts/ProtocolGovernor.sol).
+At first deployment, team. At a later date, this will be set to a lightly modified [Governor](https://docs.openzeppelin.com/contracts/4.x/api/governance#governor) contract from OpenZeppelin, [ProtocolGovernor](https://github.com/megadrome-finance/contracts/blob/main/contracts/ProtocolGovernor.sol).
 
 #### EpochGovernor
-At first deployment, team. Before the tail rate of emissions is reached, this will be set to [EpochGovernor](https://github.com/aerodrome-finance/contracts/blob/main/contracts/EpochGovernor.sol).
+At first deployment, team. Before the tail rate of emissions is reached, this will be set to [EpochGovernor](https://github.com/megadrome-finance/contracts/blob/main/contracts/EpochGovernor.sol).
 
 #### Allowed Manager
 At first deployment, team. This role will likely be given to a contract so that it can create managed nfts (e.g. for autocompounders etc)
@@ -97,7 +97,7 @@ This is an exhaustive list of all admin permissions in the protocol, sorted by t
     - Can accept itself as team in Minter (requires being set as pendingTeam by previous team)
     - Can set team rate in Minter
 - EpochGovernor
-    - Can nudge the Minter to adjust the AERO emissions rate.
+    - Can nudge the Minter to adjust the MEGA emissions rate.
 
 #### [ProtocolGovernor](TODO: live etherscan link)
 - Vetoer
@@ -117,7 +117,7 @@ This is an exhaustive list of all admin permissions in the protocol, sorted by t
     - Can set allowedManager in VotingEscrow.
     - Can activate or deactivate managed NFTs in VotingEscrow.
 - EpochGovernor
-    - Can execute one proposal per epoch to adjust the AERO emission rate after the tail emission rate has been reached in Minter.
+    - Can execute one proposal per epoch to adjust the MEGA emission rate after the tail emission rate has been reached in Minter.
 - EmergencyCouncil
     - Can set emergencyCouncil in Voter.
     - Can kill a gauge.
@@ -140,11 +140,11 @@ This is an exhaustive list of all admin permissions in the protocol, sorted by t
 In addition to defined admin roles, various contracts within the protocol have unique permissions in calling other contracts.  These permissions are immutable.
 
 #### [Minter](https://basescan.org/address/0xeB018363F0a9Af8f91F06FEe6613a751b2A33FE5#code)
-- Can mint AERO and distribute to Voter for gauge emissions and RewardsDistributor for claimable rebases
+- Can mint MEGA and distribute to Voter for gauge emissions and RewardsDistributor for claimable rebases
     - `Minter.updatePeriod()`
 
 #### [Voter](https://basescan.org/address/0x16613524e02ad97eDfeF371bC883F2F5d6C480A5#code)
-- Can distribute AERO emissions to gauges
+- Can distribute MEGA emissions to gauges
     - `Voter.distribute()`
 - Can claim fees and rewards earned by Normal veNFTs
     - `Voter.claimFees()`
@@ -167,7 +167,7 @@ In addition to defined admin roles, various contracts within the protocol have u
     - `VotingEscrow.depositManaged()`
 - Can withdraw balances from `LockedManagedReward` and `FreeManagedReward`, and rewards earned from `LockedManagedReward`
     - `VotingEscrow.withdrawManaged()`
-- Can notify rewards to `LockedManagedReward`. These rewards are always in AERO.
+- Can notify rewards to `LockedManagedReward`. These rewards are always in MEGA.
     - `VotingEscrow.increaseAmount()`
     - `VotingEscrow.depositFor()`
 

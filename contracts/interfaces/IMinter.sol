@@ -34,8 +34,8 @@ interface IMinter {
     event DistributeLiquid(address indexed _destination, uint256 _amount);
     event AcceptTeam(address indexed _newTeam);
 
-    /// @notice Interface of Aero.sol
-    function aero() external view returns (IMega);
+    /// @notice Interface of Mega.sol
+    function mega() external view returns (IMega);
 
     /// @notice Interface of Voter.sol
     function voter() external view returns (IVoter);
@@ -131,9 +131,9 @@ interface IMinter {
     function nudge() external;
 
     /// @notice Calculates rebases according to the formula
-    ///         weekly * ((aero.totalsupply - ve.totalSupply) / aero.totalsupply) ^ 2 / 2
+    ///         weekly * ((mega.totalsupply - ve.totalSupply) / mega.totalsupply) ^ 2 / 2
     ///         Note that ve.totalSupply is the locked ve supply
-    ///         aero.totalSupply is the total ve supply minted
+    ///         mega.totalSupply is the total ve supply minted
     /// @param _minted Amount of MEGA minted this epoch
     /// @return _growth Rebases
     function calculateGrowth(uint256 _minted) external view returns (uint256 _growth);

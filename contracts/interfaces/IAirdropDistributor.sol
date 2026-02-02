@@ -11,7 +11,7 @@ interface IAirdropDistributor {
 
     event Airdrop(address indexed _wallet, uint256 _amount, uint256 _tokenId);
 
-    /// @notice Interface of Aero.sol
+    /// @notice Interface of Mega.sol
     function mega() external view returns (IMega);
 
     /// @notice Interface of IVotingEscrow.sol

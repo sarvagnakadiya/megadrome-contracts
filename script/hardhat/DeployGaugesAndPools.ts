@@ -10,7 +10,7 @@ async function main() {
   );
   const voter = await getContractAt<Voter>("Voter", deployedContracts.voter);
 
-  // Deploy non-AERO pools and gauges
+  // Deploy non-MEGA pools and gauges
   for (var i = 0; i < jsonConstants.pools.length; i++) {
     const { stable, tokenA, tokenB } = jsonConstants.pools[i];
     await factory.functions["createPool(address,address,bool)"](
@@ -34,11 +34,11 @@ async function main() {
     );
   }
 
-  // Deploy AERO pools and gauges
-  for (var i = 0; i < jsonConstants.poolsAero.length; i++) {
-    const [stable, token] = Object.values(jsonConstants.poolsAero[i]);
+  // Deploy MEGA pools and gauges
+  for (var i = 0; i < jsonConstants.poolsMega.length; i++) {
+    const [stable, token] = Object.values(jsonConstants.poolsMega[i]);
     await factory.functions["createPool(address,address,bool)"](
-      deployedContracts.AERO,
+      deployedContracts.MEGA,
       token,
       stable,
       {
@@ -46,7 +46,7 @@ async function main() {
       }
     );
     let pool = await factory.functions["getPool(address,address,bool)"](
-      deployedContracts.AERO,
+      deployedContracts.MEGA,
       token,
       stable,
       {
