@@ -1,0 +1,73 @@
+{
+    "allowedManager": "0x73fE24C2A696474359ee0c547A5F220535FF0803",
+    "feeManager": "0x73fE24C2A696474359ee0c547A5F220535FF0803",
+    "emergencyCouncil": "0x73fE24C2A696474359ee0c547A5F220535FF0803",
+    "team": "0x73fE24C2A696474359ee0c547A5F220535FF0803",
+    "WETH": "0x3bd359C1119dA7Da1D913D1C4D2B7c461115433A",
+    "whitelistTokens": [
+        "0xEE8c0E9f1BFFb4Eb878d8f15f368A02a35481242",
+        "0x3bd359C1119dA7Da1D913D1C4D2B7c461115433A",
+        "0x754704Bc059F8C67012fEd69BC8A327a5aafb603",
+        "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a",
+        "0x10Aeaf63194db8d453d4D85a06E5eFE1dd0b5417",
+        "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
+        "0xea17E5a9efEBf1477dB45082d67010E2245217f1",
+        "0xe7cd86e13AC4309349F30B3435a9d337750fC82D"
+    ],
+    "pools": [
+        {
+            "stable": false,
+            "tokenA": "0x3bd359C1119dA7Da1D913D1C4D2B7c461115433A",
+            "tokenB": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603"
+        },
+        {
+            "stable": false,
+            "tokenA": "0xEE8c0E9f1BFFb4Eb878d8f15f368A02a35481242",
+            "tokenB": "0x3bd359C1119dA7Da1D913D1C4D2B7c461115433A"
+        },
+        {
+            "stable": true,
+            "tokenA": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603",
+            "tokenB": "0xe7cd86e13AC4309349F30B3435a9d337750fC82D"
+        },
+        {
+            "stable": false,
+            "tokenA": "0x10Aeaf63194db8d453d4D85a06E5eFE1dd0b5417",
+            "tokenB": "0xEE8c0E9f1BFFb4Eb878d8f15f368A02a35481242"
+        },
+        {
+            "stable": false,
+            "tokenA": "0x0555E30da8f98308EdB960aa94C0Db47230d2B9c",
+            "tokenB": "0x3bd359C1119dA7Da1D913D1C4D2B7c461115433A"
+        },
+        {
+            "stable": false,
+            "tokenA": "0xea17E5a9efEBf1477dB45082d67010E2245217f1",
+            "tokenB": "0x3bd359C1119dA7Da1D913D1C4D2B7c461115433A"
+        }
+    ],
+    "poolsMega": [
+        {
+            "stable": false,
+            "token": "0x3bd359C1119dA7Da1D913D1C4D2B7c461115433A"
+        },
+        {
+            "stable": false,
+            "token": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603"
+        }
+    ],
+    "minter": {
+        "liquid": [
+            {
+                "amount": 50000000000000000000000000,
+                "wallet": "0x73fE24C2A696474359ee0c547A5F220535FF0803"
+            }
+        ],
+        "locked": [
+            {
+                "amount": 100000000000000000000000000,
+                "wallet": "0xEA380ddC224497dfFe5871737E12136d3968af15"
+            }
+        ]
+    }
+}
