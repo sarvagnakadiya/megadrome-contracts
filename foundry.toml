@@ -3,12 +3,13 @@ src = 'contracts'
 out = 'out'
 optimizer = true
 optimizer_runs = 200
+gas_limit = 200_000_000
 
 fs_permissions = [{ access = "read-write", path = "./" }]
 
 [rpc_endpoints]
 base = "${BASE_RPC_URL}"
-base_goerli = "${BASE_GOERLI_RPC_URL}"
+base_sepolia = "${BASE_SEPOLIA_RPC_URL}"
 tenderly = "${TENDERLY_RPC_URL}"
 monad_testnet = "${MONAD_TESTNET_RPC_URL}"
 monad = "${MONAD_RPC_URL}"
@@ -16,5 +17,5 @@ anvil = "${ANVIL_RPC_URL}"
 
 [etherscan]
 base = { key = "${BASE_SCAN_API_KEY}", url = "${BASE_ETHERSCAN_VERIFIER_URL}" }
-base_goerli = { key = "${BASE_GOERLI_SCAN_API_KEY}", url = "${BASE_GOERLI_ETHERSCAN_VERIFIER_URL}" }
+base_sepolia = { key = "${BASE_SEPOLIA_SCAN_API_KEY}", url = "${BASE_SEPOLIA_ETHERSCAN_VERIFIER_URL}" }
 monad_testnet = { key = "${MONAD_TESTNET_SCAN_API_KEY}", url = "${MONAD_TESTNET_ETHERSCAN_VERIFIER_URL}" }
