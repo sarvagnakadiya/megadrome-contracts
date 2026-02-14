@@ -19,3 +19,4 @@ anvil = "${ANVIL_RPC_URL}"
 base = { key = "${BASE_SCAN_API_KEY}", url = "${BASE_ETHERSCAN_VERIFIER_URL}" }
 base_sepolia = { key = "${BASE_SEPOLIA_SCAN_API_KEY}", url = "${BASE_SEPOLIA_ETHERSCAN_VERIFIER_URL}" }
 monad_testnet = { key = "${MONAD_TESTNET_SCAN_API_KEY}", url = "${MONAD_TESTNET_ETHERSCAN_VERIFIER_URL}" }
+monad = { key = "${MONAD_SCAN_API_KEY}", url = "${MONAD_ETHERSCAN_VERIFIER_URL}" }
